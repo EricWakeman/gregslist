@@ -1,0 +1,14 @@
+.fab{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 50%;
+    background-color: rgb(75, 240, 34);
+    color: rgb(66, 66, 66);
+    z-index: 9;
+    height: 50px;
+    width: 50px;
+    display: grid;
+    place-content: center;
+    padding: 1rem;
+}
