@@ -8,12 +8,9 @@ class AppState extends EventEmitter {
 
   /** @type {Car[]} */
   cars = [
-    new Car("Honda", "Accord", 10000, "rusty", 500, "//placehold.it/500x500")
   ]
   /**@type {House[]} */
-  houses = [
-    new House(666, 666, 666, 666, 666, 666, "//placehold.it/500x500")
-  ]
+  houses = []
   /**@type {Job[]} */
   jobs = [
     new Job("Hitman", "You gotta kill people.", "$100000 per contract", true)
