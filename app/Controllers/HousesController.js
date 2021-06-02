@@ -7,17 +7,14 @@ export class HousesController {
         ProxyState.on('houses', this.drawHouses)
 
     }
-
+    getHouses() {
+        houseService.getHouses()
+    }
     drawHouses() {
-        console.log(ProxyState.houses)
-        if (ProxyState.houses.length == 0) {
-            houseService.getHouses()
-            console.log(ProxyState.houses)
 
-        } else {
-            let template = ''
-            ProxyState.houses.forEach(house => {
-                template += /*html*/ `
+        let template = ''
+        ProxyState.houses.forEach(house => {
+            template += /*html*/ `
                 <div class="col-lg-4 listing my-3">
                     <div class="card">
                         <img src="${house.imgUrl}" height="200" width="200"/>
@@ -37,16 +34,16 @@ export class HousesController {
                 </div>
 
                 `
-            }
-            )
-            document.getElementById("listings").innerHTML = template
-            document.getElementById("form-button").innerHTML = /*html*/ `<div class="col-12">
+        }
+        )
+        document.getElementById("listings").innerHTML = template
+        document.getElementById("form-button").innerHTML = /*html*/ `<div class="col-12">
                 <button class="fab" onclick="app.housesController.toggleForm()">+</button>
             </div>`
-            document.getElementById("form-field").innerHTML = /*html*/
-                `<div class="col-lg-8 m-auto">
+        document.getElementById("form-field").innerHTML = /*html*/
+            `<div class="col-lg-8 m-auto">
                             <form class="card p-3 shadow d-none" onsubmit="app.housesController.addHouse(event)" id="house-form">
-                                <div class="form-group ">
+                                <div class="form-group d-none">
                                         <input class="form-control " placeholder="houseId" type="text" id="houseId">
                                 </div>
                                 <div class="form-group">
@@ -79,14 +76,13 @@ export class HousesController {
                                 <button type="submit">submit form</button>
                             </form>
                         </div>`
-        }
+
 
     }
 
     addHouse(event) {
         try {
             event.preventDefault()
-            console.log(event)
             let form = event.target
             let formData = {
                 price: form.price.value,
@@ -104,7 +100,6 @@ export class HousesController {
                 houseService.addHouse(formData)
             }
 
-            console.log(formData)
             form.reset()
             this.toggleForm()
         } catch (error) {

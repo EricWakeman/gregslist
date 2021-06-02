@@ -7,6 +7,10 @@ export class CarsController {
         ProxyState.on('cars', this.drawCars)
         carsService.getCars()
     }
+
+    getCars() {
+        carsService.getCars()
+    }
     drawCars() {
         let template = ''
         ProxyState.cars.forEach(car => {

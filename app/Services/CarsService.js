@@ -1,7 +1,7 @@
 import { ProxyState } from "../AppState.js";
 import { Car } from "../Models/Car.js";
 
-let url = 'https://bcw-sandbox.herokuapp.com/api/cars/'
+let url = 'http://localhost:3000/api/cars/'
 
 class CarsService {
     async getCars() {
@@ -12,7 +12,7 @@ class CarsService {
     }
     async addCar(formData) {
         // @ts-ignore
-        let res = await axios.post(url)
+        let res = await axios.post(url, formData)
         let newCar = new Car(res.data)
         ProxyState.cars = [newCar, ...ProxyState.cars]
     }

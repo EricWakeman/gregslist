@@ -1,7 +1,7 @@
 export class House {
 
-    constructor({ id, price, bedrooms, bathrooms, levels, year, imgUrl }) {
-        this.id = id
+    constructor({ _id, price, bedrooms, bathrooms, levels, year, imgUrl }) {
+        this.id = _id
         this.price = price
         this.bedrooms = bedrooms
         this.bathrooms = bathrooms
